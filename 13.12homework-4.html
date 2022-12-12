@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function PostCity(companyName, contactName,  contactTitle, address) {
+            fetch("https://northwind.vercel.app/api/suppliers", {
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    companyName: `${companyName}`,
+                    contactName: `${contactName}`,
+                    contactTitle: `${contactTitle}`,
+                    address: `${address}`,
+
+                }),
+                method: 'POST',
+            })
+
+                .then(res => res.json())
+                .then(d => console.log(d))
+                .catch(err => console.log(err));
+        }
+
+
+    </script>
+</body>
+
+</html>
